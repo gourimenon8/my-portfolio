@@ -9,6 +9,7 @@ const ui = Noto_Sans({ subsets: ["latin"], variable: "--font-sans", display: "sw
 const hand = Caveat({ subsets: ["latin"], variable: "--font-hand", weight: ["400","600","700"], display: "swap" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gourimenon-portfolio.vercel.app/"),
   title: "Gouri’s Café",
   description: "Fresh data brews, warm models, and cozy analytics.",
 };
