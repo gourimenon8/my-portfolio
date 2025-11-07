@@ -1,26 +1,71 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+/* no @import needed */
+.heading-serif {
+  font-family: var(--font-playfair), serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* grainy background gradient */
+.cafe-hero{
+  position: fixed; inset: -40vmax -40vmax auto -40vmax; height: 60vmax;
+  background: radial-gradient(60% 60% at 50% 0%, #fffaf3 0%, #efe9ff 60%, transparent 100%);
+  pointer-events: none; z-index: 0; opacity: .55; filter: saturate(1.05);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* subtle paper texture (optional file: /public/textures/paper.png) */
+.cafe-paper{
+  background: #fffdf8;
+  background-image: url("/public/textures/paper.png");
+  background-size: 700px;
+  background-blend-mode: soft-light;
 }
 
+/* handwritten heading */
+.cafe-hand{ font-family: var(--font-hand); letter-spacing: .3px; }
+
+/* washi tape */
+.tape {
+  --t: #f7e8ff;
+  position:absolute; top:-10px; right:14px; width:84px; height:26px;
+  background: var(--t);
+  border-radius: 6px;
+  transform: rotate(4deg);
+  box-shadow: 0 6px 16px -8px rgba(0,0,0,.25) inset, 0 10px 20px -14px rgba(0,0,0,.25);
+  opacity:.92;
+}
+.tape:before, .tape:after{
+  content:""; position:absolute; inset:0; background: repeating-linear-gradient(135deg, rgba(255,255,255,.55), rgba(255,255,255,.55) 4px, transparent 4px, transparent 8px);
+  border-radius:6px; mix-blend-mode: overlay;
+}
+
+
+
+/* app/globals.css */
+
+.cafe-wall {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url("/hero.jpeg") center / cover no-repeat;
+  filter: brightness(.92) contrast(1.05) saturate(1.1) blur(1px);
+}
+
+.cafe-wall::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 250, 243, 0.78); /* ← LIGHT CREAM WASH */
+  backdrop-filter: blur(3px);
+  pointer-events: none;
+}
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("/paper-grain.png");
+  background-size: 600px;
+  mix-blend-mode: soft-light;
+  opacity: 0.98;
 }
+html { scroll-behavior: smooth; }
+
