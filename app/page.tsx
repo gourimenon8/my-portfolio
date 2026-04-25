@@ -9,6 +9,7 @@ import { FadeUp, FadeIn, SlideInLeft } from "@/components/ui/AnimateIn";
 const PROFILE = {
   name: "Gouri Menon",
   email: "gourimenon8@gmail.com",
+  emailColumbia: "gm3293@columbia.edu",
   github: "https://github.com/gourimenon8",
   linkedin: "https://www.linkedin.com/in/gouri-menon-646b17b1/",
 } as const;
@@ -17,7 +18,7 @@ const STATS = [
   { value: "6+", label: "ML projects shipped" },
   { value: "3", label: "Cloud platforms" },
   { value: "M.S.", label: "Data Science, UB" },
-  { value: "∞", label: "Coffees consumed" },
+  { value: "NYC", label: "Current city" },
 ];
 
 function Hero() {
@@ -71,20 +72,32 @@ function AboutSection() {
         <div className="grid gap-10 md:grid-cols-3 items-start">
           <SlideInLeft className="md:col-span-2">
             <div>
+              {/* Current role badge */}
+              <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-100 px-3 py-1 mb-3">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span className="text-xs font-medium text-blue-700">
+                  Currently: Course Associate, Advanced Analytics @ Columbia University
+                </span>
+              </div>
+
               <p className="text-xs tracking-[0.2em] uppercase text-amber-600 font-semibold mb-2">Meet the Barista</p>
               <h2 className="cafe-hand text-3xl sm:text-4xl mb-5 leading-snug">
                 I care about the full picture, not just the model.
               </h2>
               <div className="space-y-3 text-[15px] leading-relaxed text-neutral-700">
                 <p>
-                  I'm a data scientist with an <strong className="text-neutral-900">M.S. in Data Science
-                  from the University at Buffalo (SUNY).</strong> I've spent the last few years working
-                  across the whole stack: building the pipelines, training the models, and making sure
-                  the results are actually legible to the people who need to act on them.
+                  I'm a data scientist with an{" "}
+                  <strong className="text-neutral-900">M.S. in Data Science from the University at Buffalo (SUNY),</strong>{" "}
+                  currently living in New York City and working as a Course Associate for the Advanced
+                  Analytics program at Columbia University. I spend my days helping students work through
+                  real data problems, which turns out to be one of the best ways to sharpen your own thinking.
                 </p>
                 <p>
-                  I've built serverless ETL on AWS, trained PyTorch segmentation models for biomedical
-                  imaging research, and designed forecasting systems that teams genuinely rely on.
+                  Before that I've built serverless ETL on AWS, trained PyTorch segmentation models for
+                  biomedical imaging research, and designed forecasting systems that teams actually rely on.
                   I write clean code, document what I build, and don't consider a project done until
                   someone else can understand and maintain it.
                 </p>
@@ -111,7 +124,13 @@ function AboutSection() {
                   href={`mailto:${PROFILE.email}`}
                   className="inline-flex items-center gap-2 rounded-full bg-neutral-900 hover:bg-neutral-700 px-5 py-2.5 text-white text-sm font-medium shadow transition-colors"
                 >
-                  Email me
+                  Gmail
+                </a>
+                <a
+                  href={`mailto:${PROFILE.emailColumbia}`}
+                  className="inline-flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 px-5 py-2.5 text-white text-sm font-medium shadow transition-colors"
+                >
+                  Columbia email
                 </a>
                 <a
                   href={PROFILE.github}
@@ -180,6 +199,7 @@ function Footer() {
           <a href={`mailto:${PROFILE.email}`} className="underline underline-offset-2 hover:text-neutral-800 transition-colors">
             {PROFILE.name}
           </a>
+          {" "}&middot; New York City
         </p>
       </div>
     </footer>

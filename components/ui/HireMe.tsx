@@ -47,7 +47,7 @@ export default function HireMe() {
             <p className="max-w-2xl text-[15px] text-neutral-700 leading-relaxed mb-10">
               I'm actively looking for a full-time role in data science or ML engineering. I work well
               on small teams, pick up new domains quickly, and genuinely enjoy the unglamorous parts
-              of the job, like cleaning data, writing tests, and sitting through stakeholder meetings
+              of the job — like cleaning data, writing tests, and sitting through stakeholder meetings
               so the rest of the team doesn't have to.
             </p>
 
@@ -69,6 +69,8 @@ export default function HireMe() {
               ))}
             </div>
 
+            {/* Email options */}
+            <p className="text-xs text-neutral-400 mb-3 font-medium uppercase tracking-wide">Reach me at</p>
             <div className="flex flex-wrap gap-3">
               <motion.a
                 href={`mailto:${PROFILE.email}`}
@@ -77,7 +79,17 @@ export default function HireMe() {
                 className="inline-flex items-center gap-2 rounded-full bg-neutral-900 hover:bg-neutral-700 px-6 py-3 text-white font-medium shadow-md transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                Get in touch
+                {PROFILE.email}
+              </motion.a>
+
+              <motion.a
+                href={`mailto:${PROFILE.emailColumbia}`}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 px-6 py-3 text-white font-medium shadow-md transition-colors"
+              >
+                <Mail className="h-4 w-4" />
+                {PROFILE.emailColumbia}
               </motion.a>
 
               <motion.a
