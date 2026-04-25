@@ -2,70 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* no @import needed */
-.heading-serif {
-  font-family: var(--font-playfair), serif;
+/* ------------------------------------------------------------------
+   Base typography helpers
+------------------------------------------------------------------ */
+.cafe-hand {
+  font-family: var(--font-hand), cursive;
+  letter-spacing: 0.3px;
 }
 
-/* grainy background gradient */
-.cafe-hero{
-  position: fixed; inset: -40vmax -40vmax auto -40vmax; height: 60vmax;
-  background: radial-gradient(60% 60% at 50% 0%, #fffaf3 0%, #efe9ff 60%, transparent 100%);
-  pointer-events: none; z-index: 0; opacity: .55; filter: saturate(1.05);
+.menu-heading {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
-/* subtle paper texture (optional file: /public/textures/paper.png) */
-.cafe-paper{
-  background: #fffdf8;
-  background-image: url("/public/textures/paper.png");
-  background-size: 700px;
-  background-blend-mode: soft-light;
-}
-
-/* handwritten heading */
-.cafe-hand{ font-family: var(--font-hand); letter-spacing: .3px; }
-
-/* washi tape */
-.tape {
-  --t: #f7e8ff;
-  position:absolute; top:-10px; right:14px; width:84px; height:26px;
-  background: var(--t);
-  border-radius: 6px;
-  transform: rotate(4deg);
-  box-shadow: 0 6px 16px -8px rgba(0,0,0,.25) inset, 0 10px 20px -14px rgba(0,0,0,.25);
-  opacity:.92;
-}
-.tape:before, .tape:after{
-  content:""; position:absolute; inset:0; background: repeating-linear-gradient(135deg, rgba(255,255,255,.55), rgba(255,255,255,.55) 4px, transparent 4px, transparent 8px);
-  border-radius:6px; mix-blend-mode: overlay;
-}
-
-
-
-/* app/globals.css */
-
+/* ------------------------------------------------------------------
+   Page background
+   Pure-CSS cream wash — replaces a fixed-position hero.jpeg load.
+   Uses a layered radial-gradient for warmth without any image request.
+------------------------------------------------------------------ */
 .cafe-wall {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: url("/hero.jpeg") center / cover no-repeat;
-  filter: brightness(.92) contrast(1.05) saturate(1.1) blur(1px);
+  background:
+    radial-gradient(60% 50% at 30% 0%, #fff5e6 0%, transparent 70%),
+    radial-gradient(50% 60% at 80% 20%, #f4ecff 0%, transparent 70%),
+    linear-gradient(180deg, #fffaf3 0%, #fdf7ec 100%);
 }
 
-.cafe-wall::after {
-  content: "";
+/* ------------------------------------------------------------------
+   Decorative bits (kept lightweight)
+------------------------------------------------------------------ */
+.tape {
+  --t: #f7e8ff;
   position: absolute;
-  inset: 0;
-  background: rgba(255, 250, 243, 0.78); /* ← LIGHT CREAM WASH */
-  backdrop-filter: blur(3px);
-  pointer-events: none;
+  top: -10px;
+  right: 14px;
+  width: 84px;
+  height: 26px;
+  background: var(--t);
+  border-radius: 6px;
+  transform: rotate(4deg);
+  box-shadow:
+    0 6px 16px -8px rgba(0, 0, 0, 0.25) inset,
+    0 10px 20px -14px rgba(0, 0, 0, 0.25);
+  opacity: 0.92;
 }
-body {
-  background-image: url("/paper-grain.png");
-  background-size: 600px;
-  mix-blend-mode: soft-light;
-  opacity: 0.98;
-}
-html { scroll-behavior: smooth; }
 
+html {
+  scroll-behavior: smooth;
+}
