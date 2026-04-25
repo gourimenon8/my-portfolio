@@ -43,14 +43,14 @@ function Hero() {
           Welcome to Gouri's Café
         </h1>
         <p className="text-white/90 drop-shadow text-lg sm:text-xl max-w-xl mx-auto">
-          Fresh data brews, warm models, and cozy analytics — served daily.
+          Fresh data brews, warm models, and cozy analytics. Served daily.
         </p>
         <div className="pt-2 flex items-center justify-center gap-4">
           <a
             href="#hire"
             className="inline-flex items-center gap-2 rounded-full bg-amber-500 hover:bg-amber-600 px-6 py-2.5 text-white font-medium shadow-lg transition-colors text-sm"
           >
-            I'm open to work ☕
+            Open to work ☕
           </a>
           <a
             href="#menu"
@@ -73,23 +73,24 @@ function AboutSection() {
             <div>
               <p className="text-xs tracking-[0.2em] uppercase text-amber-600 font-semibold mb-2">Meet the Barista</p>
               <h2 className="cafe-hand text-3xl sm:text-4xl mb-5 leading-snug">
-                I ship ML that actually works in production.
+                I care about the full picture, not just the model.
               </h2>
               <div className="space-y-3 text-[15px] leading-relaxed text-neutral-700">
                 <p>
-                  <strong className="text-neutral-900">M.S. in Data Science from University at Buffalo (SUNY).</strong>{" "}
-                  I build end-to-end data systems — from raw ingestion to live dashboards — and I care as much
-                  about the last mile as I do about model accuracy.
+                  I'm a data scientist with an <strong className="text-neutral-900">M.S. in Data Science
+                  from the University at Buffalo (SUNY).</strong> I've spent the last few years working
+                  across the whole stack: building the pipelines, training the models, and making sure
+                  the results are actually legible to the people who need to act on them.
                 </p>
                 <p>
-                  I've built serverless ETL on AWS that cut infrastructure costs while retaining scale,
-                  trained PyTorch segmentation models for biomedical imaging research, and designed
-                  forecasting pipelines for real-time demand prediction. My stack spans Python, SQL,
-                  AWS, Snowflake, and a healthy amount of Tailwind.
+                  I've built serverless ETL on AWS, trained PyTorch segmentation models for biomedical
+                  imaging research, and designed forecasting systems that teams genuinely rely on.
+                  I write clean code, document what I build, and don't consider a project done until
+                  someone else can understand and maintain it.
                 </p>
-                <p className="text-neutral-500 italic text-sm border-l-2 border-amber-300 pl-3">
-                  I thrive at early-stage startups where data is a competitive edge, not an afterthought.
-                  Looking for a team that moves fast and wants data to actually drive decisions.
+                <p className="text-neutral-500 text-sm border-l-2 border-amber-300 pl-3">
+                  I'm at my best when the problem is hard, the data is messy, and the stakeholder
+                  needs a clear answer by Thursday. If that sounds like your team, let's talk.
                 </p>
               </div>
 
@@ -175,7 +176,7 @@ function Footer() {
       <div className="mx-auto max-w-6xl px-4 text-center text-sm text-neutral-500">
         <p className="cafe-hand text-2xl mb-1 text-neutral-700">Thanks for stopping by ☕</p>
         <p>
-          Built with Next.js & Tailwind by{" "}
+          Built with Next.js and Tailwind by{" "}
           <a href={`mailto:${PROFILE.email}`} className="underline underline-offset-2 hover:text-neutral-800 transition-colors">
             {PROFILE.name}
           </a>
