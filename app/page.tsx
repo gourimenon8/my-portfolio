@@ -16,10 +16,10 @@ const PROFILE = {
 } as const;
 
 const STATS = [
-  { value: "9+", label: "recipes in production" },
-  { value: "3 ☁️", label: "cloud kitchens" },
-  { value: "M.S.", label: "trained at UB, class of '25" },
-  { value: "NYC", label: "brewing daily" },
+  { value: "9+", label: "recipes in production", hint: "shipped at a startup, a research lab, and solo" },
+  { value: "3 ☁️", label: "cloud kitchens", hint: "AWS, GCP, and Snowflake" },
+  { value: "M.S.", label: "trained at UB, class of '25", hint: "Data Science, University at Buffalo" },
+  { value: "NYC", label: "brewing daily", hint: "open to remote and relocation anywhere" },
 ];
 
 function Hero() {
@@ -103,18 +103,16 @@ function AboutSection() {
 
               <div className="space-y-3 text-[15px] leading-relaxed text-neutral-700">
                 <p>
-                  M.S. in Data Science from the University at Buffalo, currently in New York City
-                  working as a Course Associate for the Advanced Analytics program at Columbia.
-                  Most of my days involve helping students untangle real data problems. Turns out
-                  teaching is one of the fastest ways to find the gaps in your own understanding.
+                  M.S. in Data Science from Buffalo, currently in New York City. I work as a
+                  Course Associate for Columbia's Advanced Analytics program under Prof. Dalal,
+                  where I contribute to LLM reasoning and uncertainty research.
                 </p>
                 <p>
-                  Before Columbia, I was at Skiploop Labs building PySpark pipelines and FastAPI
-                  services in production, and doing graduate research applying{" "}
-                  <strong className="text-neutral-900">Meta's SAM to retinal OCT scans.</strong>{" "}
-                  I have bounced between fintech infrastructure and biomedical imaging, between ML
-                  engineering and LLM research. Different domains ask different questions. That
-                  breadth keeps the thinking sharp.
+                  Before that I built PySpark pipelines and FastAPI services in production,
+                  trained PyTorch segmentation models for biomedical imaging, and designed
+                  forecasting systems people actually relied on. I write clean code and{" "}
+                  <strong className="text-neutral-900">don't consider something done until
+                  the next person can pick it up without calling me.</strong>
                 </p>
                 <p className="text-neutral-500 text-sm border-l-2 border-amber-300 pl-3">
                   Best when the problem is hard, the data is messy, and someone needs a clear
@@ -126,45 +124,18 @@ function AboutSection() {
                 {STATS.map((s) => (
                   <div
                     key={s.label}
-                    className="rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100/80 px-3 py-3 text-center"
+                    className="relative group rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100/80 px-3 py-3 text-center cursor-default"
                   >
                     <div className="cafe-hand text-2xl text-amber-600">{s.value}</div>
                     <div className="text-[11px] text-neutral-500 leading-tight mt-0.5 font-medium">
                       {s.label}
                     </div>
+                    <div className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1.5 rounded-lg bg-neutral-900 text-white text-[10px] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+                      {s.hint}
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-neutral-900" />
+                    </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-2.5">
-                <a
-                  href={`mailto:${PROFILE.email}`}
-                  className="inline-flex items-center gap-2 rounded-full bg-neutral-900 hover:bg-neutral-700 px-5 py-2.5 text-white text-sm font-medium shadow transition-colors"
-                >
-                  Gmail
-                </a>
-                <a
-                  href={`mailto:${PROFILE.emailColumbia}`}
-                  className="inline-flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 px-5 py-2.5 text-white text-sm font-medium shadow transition-colors"
-                >
-                  Columbia email
-                </a>
-                <a
-                  href={PROFILE.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 hover:bg-white px-5 py-2.5 text-neutral-800 text-sm font-medium transition-colors"
-                >
-                  GitHub
-                </a>
-                <a
-                  href={PROFILE.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 hover:bg-white px-5 py-2.5 text-neutral-800 text-sm font-medium transition-colors"
-                >
-                  LinkedIn
-                </a>
               </div>
             </div>
           </SlideInLeft>
