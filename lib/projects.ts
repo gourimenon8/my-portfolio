@@ -60,7 +60,8 @@ export const PROJECTS: Project[] = [
     badges: ["llm", "uncertainty", "calibration", "research", "columbia"],
     impact:
       "Prediction markets tell you the crowd's probability estimate. They don't tell you how confident that estimate is. This agent surfaces the gap.",
-    links: {},
+    links: { github: "https://github.com/gourimenon8/uncertainty-agent-prototype",
+            demo: "https://gourimenon8.github.io/uncertainty-agent-prototype/index.html",},
     long:
       "Working on how language models handle uncertainty in their own reasoning. The core question: when a model gives a confident-sounding answer, how do you figure out whether it actually knows? The work involves designing evaluations, analyzing reasoning traces, and building calibration metrics.",
     image: "/cafe/cortado.png",

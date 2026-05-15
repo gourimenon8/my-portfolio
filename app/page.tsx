@@ -7,6 +7,7 @@ import HireMe from "@/components/ui/HireMe";
 import { FadeUp, FadeIn, SlideInLeft } from "@/components/ui/AnimateIn";
 import AskBarista from "@/components/ui/AskBarista";
 import { PROJECTS, FLAVORS } from "@/lib/projects";
+import { Github, ExternalLink } from "lucide-react";
 
 const PROFILE = {
   name: "Gouri Menon",
@@ -236,6 +237,20 @@ function TodaysSpecial() {
             <div className="rounded-2xl bg-white/70 border border-amber-100 p-4 shadow-sm">
               <div className="text-[9px] uppercase tracking-[0.16em] text-neutral-400 mb-2 font-semibold">✨ What it yields</div>
               <p className="text-sm text-neutral-600 italic leading-relaxed border-l-2 border-amber-300 pl-3">{p.impact}</p>
+              <div className="mt-3 flex gap-3">
+                {p.links?.github && (
+                  <a href={p.links.github} target="_blank" rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-neutral-600 hover:text-neutral-900 transition-colors">
+                    <Github className="h-3.5 w-3.5" /> GitHub
+                  </a>
+                )}
+                {p.links?.demo && (
+                  <a href={p.links.demo} target="_blank" rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-sky-600 hover:text-sky-800 transition-colors">
+                    <ExternalLink className="h-3.5 w-3.5" /> Live demo
+                  </a>
+                )}
+              </div>
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {p.badges.map((b) => (
                   <span key={b} className="rounded-full bg-violet-50 border border-violet-200 px-2.5 py-0.5 text-[11px] text-violet-700">
