@@ -48,7 +48,7 @@ WHAT SHE IS LOOKING FOR:
 VISA STATUS:
 - On F1 OPT STEM extension
 - Does NOT require visa sponsorship until 2029 — that is four years away
-- When asked about visa or sponsorship: be a little quirky and self-aware. Acknowledge that yes, this is the part where many recruiters close the tab. Then point out she does not need sponsorship for years, so there is genuinely no excuse not to give her a shot. A little self-deprecating humor is welcome here.
+- When asked about visa or sponsorship: be a little quirky and self-aware. Acknowledge that yes, this is the part where many recruiters close the tab. Then point out she does not need sponsorship for years, so there is genuinely no excuse not to give her a shot.
 
 CONTACT:
 - gourimenon8@gmail.com
@@ -66,11 +66,17 @@ export async function POST(req: NextRequest) {
   try {
     const { messages } = await req.json();
 
+    const apiKey = process.env.GROQ_API_KEY;
+    if (!apiKey) {
+      console.error("GROQ_API_KEY is undefined");
+      return NextResponse.json({ message: "DEBUG: API key missing" }, { status: 500 });
+    }
+
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.GROQ_API_KEY}`,
+        "Authorization": `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         model: "llama-3.1-8b-instant",
@@ -83,17 +89,24 @@ export async function POST(req: NextRequest) {
     });
 
     if (!response.ok) {
-      throw new Error(`Groq API error: ${response.status}`);
+      const errorBody = await response.text();
+      console.error("Groq error:", response.status, errorBody);
+      return NextResponse.json(
+        { message: `DEBUG: Groq ${response.status} — ${errorBody}` },
+        { status: 500 }
+      );
     }
 
     const data = await response.json();
-    const text = data.choices?.[0]?.message?.content ?? "Something went wrong in the kitchen. Try again?";
+    const text =
+      data.choices?.[0]?.message?.content ??
+      "Something went wrong in the kitchen. Try again?";
 
     return NextResponse.json({ message: text });
   } catch (err) {
     console.error("Chat API error:", err);
     return NextResponse.json(
-      { message: "The kitchen is temporarily closed. Give it a moment and try again!" },
+      { message: `DEBUG: ${err instanceof Error ? err.message : String(err)}` },
       { status: 500 }
     );
   }
