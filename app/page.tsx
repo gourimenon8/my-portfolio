@@ -15,10 +15,10 @@ const PROFILE = {
 } as const;
 
 const STATS = [
-  { value: "6+", label: "ML projects shipped" },
-  { value: "3", label: "Cloud platforms" },
-  { value: "M.S.", label: "Data Science, UB" },
-  { value: "NYC", label: "Current city" },
+  { value: "9+", label: "recipes in production" },
+  { value: "3 ☁️", label: "cloud kitchens" },
+  { value: "M.S.", label: "trained at UB, class of '25" },
+  { value: "NYC", label: "brewing daily" },
 ];
 
 function Hero() {
@@ -36,9 +36,20 @@ function Hero() {
         priority
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-[#fffaf3]/95" />
+
+      {/* Steam particles */}
+      <div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 pointer-events-none z-[2]"
+        aria-hidden="true"
+      >
+        <div className="steam-particle" style={{ left: "-20px", animationDelay: "0s" }} />
+        <div className="steam-particle" style={{ left: "0px", animationDelay: "0.9s" }} />
+        <div className="steam-particle" style={{ left: "20px", animationDelay: "1.8s" }} />
+      </div>
+
       <FadeIn className="relative z-10 text-center space-y-4 px-4">
         <p className="text-white/80 text-sm tracking-[0.25em] uppercase font-medium drop-shadow">
-          Data Science · ML Engineering · Analytics
+          Data Science · ML Engineering · AI Research
         </p>
         <h1 className="cafe-hand text-5xl sm:text-7xl text-white drop-shadow-[0_2px_20px_rgba(0,0,0,.6)]">
           Welcome to Gouri's Café
@@ -72,38 +83,41 @@ function AboutSection() {
         <div className="grid gap-10 md:grid-cols-3 items-start">
           <SlideInLeft className="md:col-span-2">
             <div>
-              {/* Current role badge */}
               <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-100 px-3 py-1 mb-3">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
                 </span>
                 <span className="text-xs font-medium text-blue-700">
                   Currently: Course Associate, Advanced Analytics @ Columbia University
                 </span>
               </div>
 
-              <p className="text-xs tracking-[0.2em] uppercase text-amber-600 font-semibold mb-2">Meet the Barista</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-amber-600 font-semibold mb-2">
+                Meet the Barista
+              </p>
               <h2 className="cafe-hand text-3xl sm:text-4xl mb-5 leading-snug">
                 I care about the full picture, not just the model.
               </h2>
+
               <div className="space-y-3 text-[15px] leading-relaxed text-neutral-700">
                 <p>
-                  I'm a data scientist with an{" "}
-                  <strong className="text-neutral-900">M.S. in Data Science from the University at Buffalo (SUNY),</strong>{" "}
-                  currently living in New York City and working as a Course Associate for the Advanced
-                  Analytics program at Columbia University. I spend my days helping students work through
-                  real data problems, which turns out to be one of the best ways to sharpen your own thinking.
+                  M.S. in Data Science from the University at Buffalo, currently in New York City
+                  working as a Course Associate for the Advanced Analytics program at Columbia.
+                  Most of my days involve helping students untangle real data problems. Turns out
+                  teaching is one of the fastest ways to find the gaps in your own understanding.
                 </p>
                 <p>
-                  Before that I've built serverless ETL on AWS, trained PyTorch segmentation models for
-                  biomedical imaging research, and designed forecasting systems that teams actually rely on.
-                  I write clean code, document what I build, and don't consider a project done until
-                  someone else can understand and maintain it.
+                  Before Columbia, I was at Skiploop Labs building PySpark pipelines and FastAPI
+                  services in production, and doing graduate research applying{" "}
+                  <strong className="text-neutral-900">Meta's SAM to retinal OCT scans.</strong>{" "}
+                  I have bounced between fintech infrastructure and biomedical imaging, between ML
+                  engineering and LLM research. Different domains ask different questions. That
+                  breadth keeps the thinking sharp.
                 </p>
                 <p className="text-neutral-500 text-sm border-l-2 border-amber-300 pl-3">
-                  I'm at my best when the problem is hard, the data is messy, and the stakeholder
-                  needs a clear answer by Thursday. If that sounds like your team, let's talk.
+                  Best when the problem is hard, the data is messy, and someone needs a clear
+                  answer before Friday. If that sounds like your team, let's talk.
                 </p>
               </div>
 
@@ -114,7 +128,9 @@ function AboutSection() {
                     className="rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100/80 px-3 py-3 text-center"
                   >
                     <div className="cafe-hand text-2xl text-amber-600">{s.value}</div>
-                    <div className="text-[11px] text-neutral-500 leading-tight mt-0.5 font-medium">{s.label}</div>
+                    <div className="text-[11px] text-neutral-500 leading-tight mt-0.5 font-medium">
+                      {s.label}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -196,10 +212,13 @@ function Footer() {
         <p className="cafe-hand text-2xl mb-1 text-neutral-700">Thanks for stopping by ☕</p>
         <p>
           Built with Next.js and Tailwind by{" "}
-          <a href={`mailto:${PROFILE.email}`} className="underline underline-offset-2 hover:text-neutral-800 transition-colors">
+          <a
+            href={`mailto:${PROFILE.email}`}
+            className="underline underline-offset-2 hover:text-neutral-800 transition-colors"
+          >
             {PROFILE.name}
-          </a>
-          {" "}&middot; New York City
+          </a>{" "}
+          &middot; New York City
         </p>
       </div>
     </footer>
