@@ -63,21 +63,7 @@ export const PROJECTS: Project[] = [
     long:
       "Working with Prof. Siddhartha Dalal at Columbia on how language models handle uncertainty in their own reasoning. The core question: when a model gives a confident-sounding answer, how do you figure out whether it actually knows? The work involves designing evaluations, analyzing reasoning traces, and building calibration metrics. Presented findings to audiences including VCs and institutional stakeholders.",
   },
-  {
-    id: "retinal-oct-sam",
-    drink: "taro",
-    name: "Retinal OCT Segmentation with Meta SAM",
-    category: "Research",
-    description:
-      "Ported a MATLAB biomedical imaging pipeline to Python, then applied Meta's Segment Anything Model to retinal OCT scans.",
-    tech: ["Python", "PyTorch", "Meta SAM", "OpenCV", "MATLAB"],
-    badges: ["computer-vision", "biomedical", "segmentation", "research"],
-    impact:
-      "SAM-based segmentation matched or exceeded the legacy MATLAB baseline on clinical retinal imaging data.",
-    links: {},
-    long:
-      "Took a MATLAB-based biomedical optical imaging pipeline and ported it to Python, then applied Meta's Segment Anything Model to retinal OCT scans. The interesting challenge was adapting a zero-shot segmentation model trained on natural images to a domain with completely different visual structure. Ran systematic comparisons against the MATLAB baseline to make sure the new approach held up on actual clinical data.",
-  },
+ 
 
   // ── Existing projects ─────────────────────────────────────────────────────
 
