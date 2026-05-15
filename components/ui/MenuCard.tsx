@@ -115,21 +115,96 @@ export default function MenuCard({ p }: { p: Project }) {
 
             <Dialog>
               <DialogTrigger asChild>
-                <button className="underline text-neutral-700 text-sm">Recipe (details)</button>
+                <button className="underline text-neutral-700 text-sm hover:text-amber-700 transition-colors">Recipe (details)</button>
               </DialogTrigger>
-              <DialogContent className="max-w-xl rounded-3xl border bg-[#fffaf3] p-8 shadow-lg">
-                <h2 className="cafe-hand mb-4 text-3xl">{p.name} -- Recipe</h2>
-                <p className="mb-4 text-sm leading-relaxed text-neutral-700">
-                  {p.long ?? "Case study coming soon. Ask me about the recipe details!"}
-                </p>
-                <div className="mb-4 flex flex-wrap gap-1.5">
-                  {p.badges?.map((b) => (
-                    <span key={b} className="rounded-full bg-amber-100 px-2.5 py-1 text-[11px] text-amber-800">
-                      #{b}
-                    </span>
-                  ))}
+              <DialogContent className="max-w-lg rounded-2xl border-0 p-0 shadow-[0_24px_64px_-8px_rgba(0,0,0,0.28)] overflow-hidden bg-[#fdf6e9]">
+
+                {/* Drink-color top stripe */}
+                <div className={`h-2 w-full ${f.badge.split(" ")[0]}`} style={{ opacity: 0.85 }} />
+
+                {/* Recipe card body — faint ruled lines */}
+                <div
+                  className="px-7 pb-7 pt-5"
+                  style={{
+                    backgroundImage:
+                      "repeating-linear-gradient(to bottom, transparent, transparent 29px, #e6d4b8 29px, #e6d4b8 30px)",
+                  }}
+                >
+                  {/* Header */}
+                  <div className="flex items-start gap-3 mb-5 pb-4 border-b border-dashed border-amber-200/80">
+                    <span className="text-4xl leading-none mt-0.5" aria-hidden>{f.emoji}</span>
+                    <div>
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-600 mb-0.5">
+                        {f.label}
+                      </div>
+                      <h2 className="cafe-hand text-2xl leading-tight text-neutral-800">{p.name}</h2>
+                    </div>
+                  </div>
+
+                  {/* Ingredients */}
+                  <div className="mb-5">
+                    <div className="text-[10px] uppercase tracking-[0.16em] text-neutral-400 mb-2 font-semibold">
+                      🫘 Ingredients
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {p.tech?.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full bg-amber-100 border border-amber-200 px-2.5 py-1 text-[11px] text-amber-900"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Method */}
+                  <div className="mb-5">
+                    <div className="text-[10px] uppercase tracking-[0.16em] text-neutral-400 mb-2 font-semibold">
+                      📋 Method
+                    </div>
+                    <p className="text-sm leading-relaxed text-neutral-700 bg-white/60 rounded-xl px-4 py-3 border border-white/80">
+                      {p.long ?? "Case study coming soon — ask me about the recipe details!"}
+                    </p>
+                  </div>
+
+                  {/* Yield */}
+                  {p.impact && (
+                    <div className="mb-5">
+                      <div className="text-[10px] uppercase tracking-[0.16em] text-neutral-400 mb-2 font-semibold">
+                        ✨ What it yields
+                      </div>
+                      <p className="text-sm text-neutral-600 italic border-l-2 border-amber-300 pl-3">
+                        {p.impact}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Tags + GitHub */}
+                  <div className="flex items-end justify-between pt-3 border-t border-dashed border-amber-100/80">
+                    <div className="flex flex-wrap gap-1.5">
+                      {p.badges?.map((b) => (
+                        <span
+                          key={b}
+                          className="rounded-full bg-white border border-neutral-200 px-2.5 py-0.5 text-[11px] text-neutral-500"
+                        >
+                          #{b}
+                        </span>
+                      ))}
+                    </div>
+                    {p.links?.github && (
+                      <a
+                        href={p.links.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-neutral-800 transition-colors ml-3 shrink-0"
+                      >
+                        <Github className="h-3.5 w-3.5" />
+                        GitHub
+                      </a>
+                    )}
+                  </div>
                 </div>
-                <p className="text-xs text-neutral-500 italic">Impact: {p.impact}</p>
               </DialogContent>
             </Dialog>
           </div>
