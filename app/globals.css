@@ -76,3 +76,55 @@ html {
   animation: steam-rise 2.8s ease-in-out infinite;
   pointer-events: none;
 }
+
+/* ------------------------------------------------------------------
+   Dark mode — "Evening Roast"
+------------------------------------------------------------------ */
+.dark .cafe-wall {
+  background:
+    radial-gradient(60% 50% at 30% 0%, #2d1f0e 0%, transparent 70%),
+    radial-gradient(50% 60% at 80% 20%, #1a1230 0%, transparent 70%),
+    linear-gradient(180deg, #15110e 0%, #1a1512 100%);
+}
+
+.dark body {
+  color: #f0e8d8;
+}
+
+/* Recipe card paper in dark mode */
+.dark {
+  --recipe-bg: #2a201a;
+  --recipe-line: #3d2e22;
+}
+
+/* About section card */
+.dark .rounded-3xl.bg-white\/80 {
+  background: rgba(30, 25, 18, 0.85) !important;
+}
+
+/* Skill cards and general white cards */
+.dark .bg-white\/75,
+.dark .bg-white\/70,
+.dark .bg-white\/80 {
+  background-color: rgba(30, 25, 18, 0.75) !important;
+}
+
+/* Stat cards */
+.dark .from-amber-50 {
+  --tw-gradient-from: #2a1f0e !important;
+}
+.dark .to-orange-50 {
+  --tw-gradient-to: #251a0d !important;
+}
+
+/* Neutral tags */
+.dark .bg-neutral-100 { background-color: #2a2520 !important; }
+.dark .bg-neutral-200 { background-color: #332d26 !important; }
+.dark .text-neutral-700 { color: #d4c4a8 !important; }
+.dark .text-neutral-600 { color: #b8a88a !important; }
+.dark .text-neutral-500 { color: #9a8870 !important; }
+
+/* HireMe section */
+.dark .from-amber-50.via-\[#fffaf3\].to-purple-50 {
+  background: linear-gradient(135deg, #2a1f0e, #1a1512, #1a1230) !important;
+}
