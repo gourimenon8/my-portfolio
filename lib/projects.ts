@@ -59,10 +59,10 @@ export const PROJECTS: Project[] = [
     tech: ["Python", "PyTorch", "Transformers", "LLM APIs", "Statistical Analysis"],
     badges: ["llm", "uncertainty", "calibration", "research", "columbia"],
     impact:
-      "Findings presented to VCs and institutional stakeholders as part of Columbia's Advanced Analytics research program.",
+      "Prediction markets tell you the crowd's probability estimate. They don't tell you how confident that estimate is. This agent surfaces the gap.",
     links: {},
     long:
-      "Working with Prof. Siddhartha Dalal at Columbia on how language models handle uncertainty in their own reasoning. The core question: when a model gives a confident-sounding answer, how do you figure out whether it actually knows? The work involves designing evaluations, analyzing reasoning traces, and building calibration metrics. Presented findings to audiences including VCs and institutional stakeholders.",
+      "Working on how language models handle uncertainty in their own reasoning. The core question: when a model gives a confident-sounding answer, how do you figure out whether it actually knows? The work involves designing evaluations, analyzing reasoning traces, and building calibration metrics.",
     image: "/cafe/cortado.png",
   },
  

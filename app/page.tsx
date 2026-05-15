@@ -5,6 +5,7 @@ import ProjectsExplorer from "@/components/ui/ProjectsExplorer";
 import SkillsSection from "@/components/ui/SkillsSection";
 import HireMe from "@/components/ui/HireMe";
 import { FadeUp, FadeIn, SlideInLeft } from "@/components/ui/AnimateIn";
+import AskBarista from "@/components/ui/AskBarista";
 
 const PROFILE = {
   name: "Gouri Menon",
@@ -237,6 +238,7 @@ export default function Page() {
       <div className="mx-auto my-8 h-px max-w-6xl bg-gradient-to-r from-transparent via-amber-200/60 to-transparent" />
       <HireMe />
       <Footer />
+      <AskBarista />
     </>
   );
 }
