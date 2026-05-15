@@ -6,6 +6,7 @@ import SkillsSection from "@/components/ui/SkillsSection";
 import HireMe from "@/components/ui/HireMe";
 import { FadeUp, FadeIn, SlideInLeft } from "@/components/ui/AnimateIn";
 import AskBarista from "@/components/ui/AskBarista";
+import { PROJECTS, FLAVORS } from "@/lib/projects";
 
 const PROFILE = {
   name: "Gouri Menon",
@@ -197,6 +198,59 @@ function Footer() {
   );
 }
 
+function TodaysSpecial() {
+  const p = PROJECTS.find((p) => p.id === "llm-uncertainty");
+  if (!p) return null;
+  const f = FLAVORS[p.drink];
+
+  return (
+    <section className="mx-auto max-w-6xl px-4 pb-4">
+      <FadeUp>
+        <div className="relative overflow-hidden rounded-3xl border border-amber-200/60 bg-gradient-to-br from-amber-50 via-[#fffaf3] to-violet-50 p-6 shadow-[0_8px_32px_-8px_rgba(245,158,11,0.2)]">
+          <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full border-[16px] border-amber-100/40" />
+
+          <div className="flex items-start justify-between mb-4">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-500 px-3 py-1 text-white text-[11px] font-semibold uppercase tracking-wider shadow-sm">
+              ✨ Today's Special
+            </div>
+            <span className="text-[11px] text-neutral-400 italic">featured research</span>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3 items-start">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-2 mb-2 cafe-hand text-2xl">
+                <span>{f.emoji}</span>
+                <span>{f.label}</span>
+              </div>
+              <h3 className="font-semibold text-lg text-neutral-800 mb-2 leading-snug">{p.name}</h3>
+              <p className="text-[14px] text-neutral-700 leading-relaxed mb-4">{p.long}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {p.tech.map((t) => (
+                  <span key={t} className="rounded-full bg-white/80 border border-amber-200 px-2.5 py-1 text-[11px] text-amber-800">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-white/70 border border-amber-100 p-4 shadow-sm">
+              <div className="text-[9px] uppercase tracking-[0.16em] text-neutral-400 mb-2 font-semibold">✨ What it yields</div>
+              <p className="text-sm text-neutral-600 italic leading-relaxed border-l-2 border-amber-300 pl-3">{p.impact}</p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {p.badges.map((b) => (
+                  <span key={b} className="rounded-full bg-violet-50 border border-violet-200 px-2.5 py-0.5 text-[11px] text-violet-700">
+                    #{b}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </FadeUp>
+    </section>
+  );
+}
+
 export default function Page() {
   return (
     <>
@@ -205,6 +259,7 @@ export default function Page() {
       <AboutSection />
       <SkillsSection />
       <MenuHeading />
+      <TodaysSpecial />
       <ProjectsExplorer />
       <div className="mx-auto my-8 h-px max-w-6xl bg-gradient-to-r from-transparent via-amber-200/60 to-transparent" />
       <HireMe />
