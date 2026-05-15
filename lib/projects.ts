@@ -47,6 +47,7 @@ export const PROJECTS: Project[] = [
     },
     long:
       "Pulls live probability data from Polymarket's API and runs it through a Mage AI orchestration pipeline to clean, normalize, and snapshot market state over time. The Streamlit frontend lets you watch how crowd forecasts shift as events develop. Built this specifically to demonstrate hands-on Mage AI experience for a role. Kept it deployed because it turned out to be a genuinely useful thing to have running.",
+    image:"/cafe/coldbrew.jpeg",
   },
   {
     id: "llm-uncertainty",
@@ -62,6 +63,7 @@ export const PROJECTS: Project[] = [
     links: {},
     long:
       "Working with Prof. Siddhartha Dalal at Columbia on how language models handle uncertainty in their own reasoning. The core question: when a model gives a confident-sounding answer, how do you figure out whether it actually knows? The work involves designing evaluations, analyzing reasoning traces, and building calibration metrics. Presented findings to audiences including VCs and institutional stakeholders.",
+    image: "/cafe/cortado.jpeg",
   },
  
 
