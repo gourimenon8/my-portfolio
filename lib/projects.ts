@@ -60,7 +60,7 @@ export const PROJECTS: Project[] = [
     demo: "https://financial-audit-agent-gm.streamlit.app/",
   },
   long: "Two-stage Claude pipeline: first call inspects the schema and decides what analysis to run, second call executes it and flags anomalies. Handles files over 10,000 rows by aggregating statistically first. Outputs an interactive dark dashboard with Chart.js visualizations and a downloadable markdown report. Also has a CLI mode for bank statement CSVs.",
-  image: "/cafe/salted_caramel.png",
+  image: "/cafe/salted_caramel_iced.png",
 },
 {
   id: "sec-edgar-mcp",
