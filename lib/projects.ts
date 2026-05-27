@@ -10,6 +10,9 @@ export const FLAVORS = {
   taro:      { emoji: "💜", label: "Taro Milk Tea",  badge: "bg-purple-100 text-purple-700",   stroke: "#C8B6FF" },
   cortado:   { emoji: "🧪", label: "Cortado",        badge: "bg-violet-100 text-violet-700",   stroke: "#DDD6FE" },
   cold_brew: { emoji: "🧊", label: "Cold Brew",      badge: "bg-sky-100 text-sky-700",         stroke: "#BAE6FD" },
+  macchiato:      { emoji: "☕", label: "Macchiato",            badge: "bg-amber-200 text-amber-900",   stroke: "#FCD34D" },
+  salted_caramel: { emoji: "🍦", label: "Salted Caramel Iced",  badge: "bg-orange-100 text-orange-800", stroke: "#FED7AA" },
+  filter_coffee:  { emoji: "🫗", label: "Filter Coffee",         badge: "bg-stone-200 text-stone-800",   stroke: "#D6D3D1" },
 } as const;
 
 export type FlavorKey = keyof typeof FLAVORS;
@@ -30,7 +33,48 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   // ── AI projects (pinned first so they lead the grid) ──────────────────────
-
+  {
+  id: "mini-rag",
+  drink: "macchiato",
+  name: "Mini RAG Assistant",
+  category: "AI",
+  description: "Lightweight RAG pipeline that answers questions across uploaded research PDFs, with confidence-scored source citations.",
+  tech: ["Python", "FAISS", "Claude API", "Sentence Transformers", "Streamlit", "PyMuPDF"],
+  badges: ["rag", "llm", "vector-search", "ai"],
+  impact: "Grounds every answer in cited sources, flags when information is absent, runs entirely in memory with no external vector DB.",
+  links: { github: "https://github.com/gourimenon8/mini-RAG-assistant" },
+  long: "Uploads research PDFs, extracts text per page, chunks with configurable overlap, embeds with all-MiniLM-L6-v2, indexes with FAISS, then queries Claude with the top-k retrieved chunks. Every answer cites [Source N] and explicitly flags when information is absent from the context. Multi-turn memory included so follow-up questions resolve correctly.",
+  image: "/cafe/macchiato.png",
+},
+{
+  id: "financial-audit-agent",
+  drink: "salted_caramel",
+  name: "AI Financial Audit Agent",
+  category: "AI",
+  description: "Upload any financial file and Claude identifies the data type, builds a tailored analysis plan, and produces a structured audit report.",
+  tech: ["Python", "Claude API", "Streamlit", "pandas", "Chart.js"],
+  badges: ["ai-agent", "fintech", "deployed", "audit"],
+  impact: "Handles bank statements, loan data, payroll, government spending. Live at financial-audit-agent-gm.streamlit.app.",
+  links: {
+    github: "https://github.com/gourimenon8/financial-audit-agent",
+    demo: "https://financial-audit-agent-gm.streamlit.app/",
+  },
+  long: "Two-stage Claude pipeline: first call inspects the schema and decides what analysis to run, second call executes it and flags anomalies. Handles files over 10,000 rows by aggregating statistically first. Outputs an interactive dark dashboard with Chart.js visualizations and a downloadable markdown report. Also has a CLI mode for bank statement CSVs.",
+  image: "/cafe/salted_caramel.png",
+},
+{
+  id: "sec-edgar-mcp",
+  drink: "filter_coffee",
+  name: "SEC EDGAR MCP Server",
+  category: "AI",
+  description: "Custom MCP server that connects Claude Desktop and other AI clients to live SEC EDGAR financial data — no API key needed.",
+  tech: ["Python", "FastMCP", "httpx", "SEC EDGAR API", "pydantic"],
+  badges: ["mcp", "fintech", "agentic", "ai"],
+  impact: "Ask Claude how Apple's free cash flow has trended over 6 quarters and get answers sourced directly from SEC filings in real time.",
+  links: { github: "https://github.com/gourimenon8/sec-edgar-mcp" },
+  long: "Implements Anthropic's Model Context Protocol on top of the SEC's public EDGAR APIs. Four tools: search company by ticker, fetch filings by type (10-K, 10-Q, 8-K), pull XBRL financial data across income statement, balance sheet, and cash flow, and compare two periods side by side. Fully async with graceful error handling so the LLM can reason about failures and retry.",
+  image: "/cafe/filter_coffee.png",
+},
   {
     id: "polymarket-pipeline",
     drink: "cold_brew",
