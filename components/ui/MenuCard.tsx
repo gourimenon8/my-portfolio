@@ -58,7 +58,7 @@ export default function MenuCard({ p }: { p: Project }) {
                     height={112}
                     sizes="144px"
                     loading="lazy"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-contain p-1"
                     onError={() => setBroken(true)}
                   />
                 ) : (
